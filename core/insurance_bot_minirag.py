@@ -9,16 +9,23 @@ import asyncio
 import hashlib
 import time
 from typing import Dict, List, Optional
-sys.path.append('/Volumes/data/MINIRAG/MiniRAG')
+
+# Get base directory (works in both local and Docker)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.join(BASE_DIR, 'MiniRAG'))
 
 # Load config
 import configparser
 config = configparser.ConfigParser()
-config.read('/Volumes/data/MINIRAG/config/insurance_config.ini')
-
-# Set environment variables
-for key in config['DEFAULT']:
-    os.environ[key.upper()] = str(config['DEFAULT'][key])
+config_path = os.path.join(BASE_DIR, 'config', 'insurance_config.ini')
+if os.path.exists(config_path):
+    config.read(config_path)
+    # Set environment variables from config (only if config exists)
+    if 'DEFAULT' in config:
+        for key in config['DEFAULT']:
+            # Only set if not already in environment
+            if key.upper() not in os.environ:
+                os.environ[key.upper()] = str(config['DEFAULT'][key])
 
 from minirag import MiniRAG, QueryParam
 from minirag.llm import gpt_4o_mini_complete
@@ -92,14 +99,22 @@ async def get_openai_embedding_func(texts):
         # Chỉ gọi API cho texts chưa có trong cache
         if texts_to_fetch:
             print(f"🔍 Fetching embeddings for {len(texts_to_fetch)} texts...")
+            # Ưu tiên đọc từ environment variables, nếu không có thì đọc từ config
+            api_key = os.environ.get('OPENAI_API_KEY') or config.get('DEFAULT', 'OPENAI_API_KEY', fallback=None)
+            base_url = os.environ.get('OPENAI_BASE_URL') or os.environ.get('OPENAI_API_BASE') or config.get('DEFAULT', 'OPENAI_BASE_URL', fallback=None)
+            embedding_model = os.environ.get('EMBEDDING_MODEL') or config.get('DEFAULT', 'EMBEDDING_MODEL', fallback='text-embedding-3-small')
+            
+            if not api_key:
+                raise ValueError("OPENAI_API_KEY not found in environment variables or config file")
+            
             client = AsyncOpenAI(
-                api_key=config.get('DEFAULT', 'OPENAI_API_KEY'),
-                base_url=config.get('DEFAULT', 'OPENAI_BASE_URL')
+                api_key=api_key,
+                base_url=base_url
             )
 
             response = await client.embeddings.create(
                 input=texts_to_fetch,
-                model=config.get('DEFAULT', 'EMBEDDING_MODEL', fallback='text-embedding-3-small')
+                model=embedding_model
             )
 
             fetched_embeddings = [data.embedding for data in response.data]
@@ -156,13 +171,29 @@ class InsuranceBotMiniRAG:
     def __init__(self):
         print("🚀 Initializing Insurance Bot with MiniRAG...")
 
-        working_dir = config.get('DEFAULT', 'WORKING_DIR', fallback='./insurance_rag')
+        # Ưu tiên đọc từ environment variables
+        working_dir = os.environ.get('WORKING_DIR') or config.get('DEFAULT', 'WORKING_DIR', fallback='./insurance_rag')
+        # Normalize working_dir: nếu là đường dẫn tuyệt đối chứa /Volumes, chuyển thành relative
+        if working_dir.startswith('/Volumes'):
+            # Extract relative path from /Volumes/data/MINIRAG/logs/insurance_rag
+            if 'logs/insurance_rag' in working_dir:
+                working_dir = './logs/insurance_rag'
+            else:
+                working_dir = './insurance_rag'
+        # Đảm bảo working_dir là relative path trong container
+        if not working_dir.startswith('./'):
+            working_dir = './' + working_dir.lstrip('/')
+        
+        llm_max_tokens = int(os.environ.get('OPENAI_LLM_MAX_TOKENS') or config.get('DEFAULT', 'OPENAI_LLM_MAX_TOKENS', fallback='1000'))
+        llm_model = os.environ.get('OPENAI_LLM_MODEL') or config.get('DEFAULT', 'OPENAI_LLM_MODEL', fallback='gpt-4o-mini')
+        
+        print(f"📁 Working directory: {working_dir}")
 
         self.rag = MiniRAG(
             working_dir=working_dir,
             llm_model_func=gpt_4o_mini_complete,
-            llm_model_max_token_size=int(config.get('DEFAULT', 'OPENAI_LLM_MAX_TOKENS', fallback='1000')),
-            llm_model_name=config.get('DEFAULT', 'OPENAI_LLM_MODEL', fallback='gpt-4o-mini'),
+            llm_model_max_token_size=llm_max_tokens,
+            llm_model_name=llm_model,
             embedding_func=EmbeddingFunc(
                 embedding_dim=1536,
                 max_token_size=1000,

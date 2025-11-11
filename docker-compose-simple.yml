@@ -36,7 +36,7 @@ services:
       EMBEDDING_MODEL: ${EMBEDDING_MODEL:-text-embedding-3-small}
 
       # MiniRAG Configuration
-      WORKING_DIR: ${WORKING_DIR:-./}
+      WORKING_DIR: ${WORKING_DIR:-./logs/insurance_rag}
       LLM_MODEL_DIR: ${LLM_MODEL_DIR:-./}
       NLTK_DATA: ${NLTK_DATA:-./nltk_data}
 

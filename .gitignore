@@ -1,0 +1,112 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/*.log
+logs/minirag.log
+*.log
+
+# Data stores (comment out if you want to track these)
+logs/insurance_rag/
+logs/vdb_*.json
+logs/kv_store_*.json
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+.tmp/
+
+# Test outputs
+tests/output/
+tests/results/
+
+# MiniRAG framework (usually don't track)
+MiniRAG/
+
+# Config with secrets (uncomment if you want to track)
+# config/insurance_config.ini
+
+# Archive and old files
+archive/
+*.bak
+
+# SSL certificates (sensitive)
+ssl/*.key
+ssl/private.pem
+
+# Documentation (archived)
+docs/
+INSURANCE_BOT_README.md
+MINIRAG_BOT_README.md
+markdown_template_example.md
+OPTIMIZATION_LOG.md
+
+# Legacy API files
+core/insurance_api.py
+core/insurance_app.py
+
+# Demo and launcher files
+demo_swagger_api.py
+run_swagger_demo.py
+run_swagger_ui.py
+
+# Old test files
+tests/test_bot_bao_hiem*.py
+tests/test_bot_da_sua.py
+tests/test_bot_don_gian.py
+tests/test_minirag*.py
+tests/test_xoa_cache.py
+tests/test_cau_hinh_openai.py
+tests/test_chi_phi_token.py
+tests/test_thoi_gian_phan_hoi.py
+tests/load_insurance_data.py
+
+# Example and utility files
+example_config_change.sh
+test_config.py

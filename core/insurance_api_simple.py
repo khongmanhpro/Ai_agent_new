@@ -8,10 +8,11 @@ import sys
 import asyncio
 import json
 import time
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, abort
 from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
 from typing import Optional
+from functools import wraps
 import logging
 
 # Import bot
@@ -36,9 +37,59 @@ for key in config['DEFAULT']:
 API_HOST = os.environ.get('API_HOST', '0.0.0.0')
 API_PORT = int(os.environ.get('API_PORT', 8001))
 
+# API Authentication
+API_SECRET_KEY = os.environ.get('API_SECRET_KEY', 'insurance-bot-secret-key-2024')
+REQUIRE_API_KEY = os.environ.get('REQUIRE_API_KEY', 'true').lower() == 'true'
+
 # Flask app
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+
+# Authentication decorator
+def require_api_key(f):
+    """Decorator to require API key authentication like OpenAI API"""
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if REQUIRE_API_KEY:
+            auth_header = request.headers.get('Authorization')
+            api_key = request.headers.get('X-API-Key')  # Alternative header
+
+            if not auth_header and not api_key:
+                return jsonify({
+                    "error": {
+                        "message": "Missing API key. Please provide your API key in the Authorization header (Bearer token) or X-API-Key header.",
+                        "type": "authentication_error",
+                        "code": "missing_api_key"
+                    }
+                }), 401
+
+            # Check Bearer token format
+            if auth_header:
+                if not auth_header.startswith('Bearer '):
+                    return jsonify({
+                        "error": {
+                            "message": "Invalid Authorization header format. Use 'Bearer YOUR_API_KEY' format.",
+                            "type": "authentication_error",
+                            "code": "invalid_auth_format"
+                        }
+                    }), 401
+
+                provided_key = auth_header.replace('Bearer ', '', 1)
+            else:
+                provided_key = api_key
+
+            # Validate API key
+            if provided_key != API_SECRET_KEY:
+                return jsonify({
+                    "error": {
+                        "message": "Invalid API key provided.",
+                        "type": "authentication_error",
+                        "code": "invalid_api_key"
+                    }
+                }), 401
+
+        return f(*args, **kwargs)
+    return decorated_function
 
 # Swagger UI Configuration
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
@@ -265,7 +316,26 @@ OPENAPI_SPEC = {
                     }
                 }
             }
-        }
+        },
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "X-API-Key",
+                "description": "API Key for authentication (can also use Authorization: Bearer YOUR_API_KEY)"
+            },
+            "BearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "Bearer token authentication (Authorization: Bearer YOUR_API_KEY)"
+            }
+        },
+        "security": [
+            {
+                "ApiKeyAuth": [],
+                "BearerAuth": []
+            }
+        ]
     },
     "tags": [
         {
@@ -313,6 +383,7 @@ def health_check():
     })
 
 @app.route("/chat", methods=["POST"])
+@require_api_key
 def chat_endpoint():
     """Main chat endpoint"""
     if not bot:

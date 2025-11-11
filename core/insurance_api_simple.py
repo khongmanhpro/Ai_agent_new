@@ -123,21 +123,101 @@ swaggerui_blueprint = get_swaggerui_blueprint(
         'persistAuthorization': True,  # Lưu API key sau khi refresh
         'defaultModelsExpandDepth': 1,
         'defaultModelExpandDepth': 1,
-        'onComplete': f'''
-        function() {{
-            // Auto-set API key when Swagger UI loads
-            const apiKey = "{API_SECRET_KEY}";
-            if (window.ui) {{
-                window.ui.preauthorizeApiKey("BearerAuth", apiKey);
-                window.ui.preauthorizeApiKey("ApiKeyAuth", apiKey);
-                console.log("✅ API Key auto-set:", apiKey);
-            }}
-        }}
-        '''
     },
 )
 
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+
+# Custom route to inject auto-auth script into Swagger UI
+@app.route("/api/docs/")
+def swagger_ui_index():
+    """Serve Swagger UI with auto-auth script injection"""
+    api_key = API_SECRET_KEY
+    try:
+        # Get the original Swagger UI HTML from the blueprint
+        from flask import make_response, render_template_string
+        import urllib.request
+        
+        # Fetch the Swagger UI HTML
+        swagger_html = f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insurance Bot API - Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="/api/docs/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/api/docs/index.css" />
+    <style>
+        html {{
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }}
+        *, *:before, *:after {{
+            box-sizing: inherit;
+        }}
+        body {{
+            margin:0;
+            background: #fafafa;
+        }}
+    </style>
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="/api/docs/swagger-ui-bundle.js"></script>
+    <script src="/api/docs/swagger-ui-standalone-preset.js"></script>
+    <script>
+        const apiKey = '{api_key}';
+        
+        // Swagger UI configuration
+        window.onload = function() {{
+            const ui = SwaggerUIBundle({{
+                url: "/api/spec",
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl
+                ],
+                layout: "StandaloneLayout",
+                persistAuthorization: true,
+                onComplete: function() {{
+                    // Auto-set API key when Swagger UI loads
+                    if (window.ui) {{
+                        window.ui.preauthorizeApiKey("BearerAuth", apiKey);
+                        window.ui.preauthorizeApiKey("ApiKeyAuth", apiKey);
+                        console.log("✅ API Key auto-set:", apiKey);
+                    }}
+                }}
+            }});
+            
+            // Store ui instance globally
+            window.ui = ui;
+            
+            // Also try to set API key after a delay
+            setTimeout(function() {{
+                if (window.ui && typeof window.ui.preauthorizeApiKey === 'function') {{
+                    window.ui.preauthorizeApiKey("BearerAuth", apiKey);
+                    window.ui.preauthorizeApiKey("ApiKeyAuth", apiKey);
+                    console.log("✅ API Key auto-set (delayed):", apiKey);
+                }}
+            }}, 1000);
+        }};
+    </script>
+</body>
+</html>
+"""
+        response = make_response(swagger_html)
+        response.headers['Content-Type'] = 'text/html; charset=utf-8'
+        return response
+    except Exception as e:
+        logger.error(f"Error serving Swagger UI: {e}")
+        # Fallback to default Swagger UI
+        from flask import redirect
+        return redirect('/api/docs/index.html?url=/api/spec')
 
 # Global bot instance
 bot: Optional[InsuranceBotMiniRAG] = None

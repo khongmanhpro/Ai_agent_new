@@ -38,8 +38,10 @@ API_HOST = os.environ.get('API_HOST', '0.0.0.0')
 API_PORT = int(os.environ.get('API_PORT', 8001))
 
 # API Authentication
-API_SECRET_KEY = os.environ.get('API_SECRET_KEY', 'insurance-bot-secret-key-2024')
+API_SECRET_KEY = os.environ.get('API_SECRET_KEY', 'fiss-c61197f847cc4682a91ada560bbd7119')
 REQUIRE_API_KEY = os.environ.get('REQUIRE_API_KEY', 'true').lower() == 'true'
+
+# API Authentication settings loaded
 
 # Flask app
 app = Flask(__name__)

@@ -435,3 +435,31 @@
 2025-11-11 20:21:49,587 - minirag - INFO - Query: bảo hiển sức khoẻ, top_k: 15, cosine_better_than_threshold: 0.3
 2025-11-11 20:28:38,852 - minirag - INFO - Query: Hello, top_k: 0, cosine_better_than_threshold: 0.3
 2025-11-11 20:28:38,873 - minirag - INFO - Query: Hello, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 22:25:24,042 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 22:25:24,044 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 22:25:24,047 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 22:25:24,050 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 22:25:24,057 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 22:25:24,646 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 22:25:25,375 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 22:26:29,371 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 22:26:29,373 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 22:26:29,374 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 22:26:29,378 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 22:26:29,382 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 22:26:30,135 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 22:26:31,253 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 22:27:21,182 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 22:27:21,184 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 22:27:21,184 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 22:27:21,188 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 22:27:21,194 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 22:27:21,821 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 22:27:22,673 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 22:28:23,348 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 22:28:23,349 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 22:28:23,350 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 22:28:23,353 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 22:28:23,359 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 22:28:23,903 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 22:28:24,750 - minirag - INFO - Loaded document status storage with 13 records

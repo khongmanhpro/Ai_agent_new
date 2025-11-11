@@ -8,11 +8,18 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     curl \
     build-essential \
+    git \
+    libssl-dev \
+    libffi-dev \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for better caching
 COPY core/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir flask flask-cors flask-swagger-ui requests websockets && \
+    pip install --no-cache-dir numpy pandas nltk neo4j openai tiktoken && \
+    pip install --no-cache-dir faiss-cpu sentence-transformers
 
 # Install MiniRAG framework locally
 COPY MiniRAG/ ./MiniRAG/

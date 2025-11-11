@@ -101,7 +101,10 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     SWAGGER_URL,  # Swagger UI static files will be mapped to '{SWAGGER_URL}/dist/'
     API_URL,
     config={  # Swagger UI config overrides
-        'app_name': "Insurance Bot API"
+        'app_name': "Insurance Bot API",
+        'persistAuthorization': True,  # Lưu API key sau khi refresh
+        'defaultModelsExpandDepth': 1,
+        'defaultModelExpandDepth': 1
     },
 )
 
@@ -115,7 +118,7 @@ OPENAPI_SPEC = {
     "openapi": "3.0.3",
     "info": {
         "title": "Insurance Bot API",
-        "description": "REST API cho chatbot bảo hiểm FISS sử dụng MiniRAG framework",
+        "description": "REST API cho chatbot bảo hiểm FISS ",
         "version": "1.0.0",
         "contact": {
             "name": "FISS Insurance Team"
@@ -151,6 +154,14 @@ OPENAPI_SPEC = {
             "post": {
                 "summary": "Chat với Bot",
                 "description": "Gửi tin nhắn để chat với bot bảo hiểm",
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    },
+                    {
+                        "BearerAuth": []
+                    }
+                ],
                 "requestBody": {
                     "required": True,
                     "content": {
@@ -324,12 +335,15 @@ OPENAPI_SPEC = {
                 "type": "apiKey",
                 "in": "header",
                 "name": "X-API-Key",
-                "description": "API Key for authentication (can also use Authorization: Bearer YOUR_API_KEY)"
+                "description": "API Key for authentication (can also use Authorization: Bearer YOUR_API_KEY)",
+                "x-default": "fiss-c61197f847cc4682a91ada560bbd7119"
             },
             "BearerAuth": {
                 "type": "http",
                 "scheme": "bearer",
-                "description": "Bearer token authentication (Authorization: Bearer YOUR_API_KEY)"
+                "bearerFormat": "API Key",
+                "description": "Bearer token authentication (Authorization: Bearer YOUR_API_KEY)",
+                "x-default": "fiss-c61197f847cc4682a91ada560bbd7119"
             }
         },
         "security": [
@@ -373,6 +387,49 @@ def init_bot():
 def api_spec():
     """OpenAPI specification endpoint"""
     return jsonify(OPENAPI_SPEC)
+
+@app.after_request
+def inject_swagger_auth(response):
+    """Inject JavaScript to auto-set API key in Swagger UI"""
+    if request.path.startswith('/api/docs') and response.content_type and 'text/html' in response.content_type:
+        api_key = API_SECRET_KEY
+        script = f"""
+        <script>
+        (function() {{
+            // Wait for Swagger UI to load
+            function setApiKey() {{
+                if (window.ui) {{
+                    // Set API key in Swagger UI
+                    window.ui.preauthorizeApiKey('BearerAuth', '{api_key}');
+                    window.ui.preauthorizeApiKey('ApiKeyAuth', '{api_key}');
+                    console.log('✅ API Key auto-set:', '{api_key}');
+                }} else {{
+                    setTimeout(setApiKey, 100);
+                }}
+            }}
+            // Run on page load
+            if (document.readyState === 'loading') {{
+                document.addEventListener('DOMContentLoaded', setApiKey);
+            }} else {{
+                setApiKey();
+            }}
+            // Also set in localStorage for persistence
+            try {{
+                const authData = {{
+                    BearerAuth: {{ value: '{api_key}' }},
+                    ApiKeyAuth: {{ value: '{api_key}' }}
+                }};
+                localStorage.setItem('swagger-ui-auth', JSON.stringify(authData));
+            }} catch(e) {{
+                console.warn('Could not save to localStorage:', e);
+            }}
+        }})();
+        </script>
+        """
+        # Inject script before closing body tag
+        if hasattr(response, 'data'):
+            response.data = response.data.decode('utf-8').replace('</body>', script + '</body>')
+    return response
 
 @app.route("/health", methods=["GET"])
 def health_check():

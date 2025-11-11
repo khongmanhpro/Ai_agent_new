@@ -405,6 +405,9 @@
             showLoading();
 
             try {
+                console.log('📤 Sending request to:', API_URL);
+                console.log('📤 Message:', message);
+                
                 const response = await fetch(API_URL, {
                     method: 'POST',
                     headers: {
@@ -419,28 +422,46 @@
                     })
                 });
 
+                console.log('📥 Response status:', response.status, response.statusText);
+
+                if (!response.ok) {
+                    // Try to parse error response
+                    let errorData;
+                    try {
+                        errorData = await response.json();
+                    } catch (e) {
+                        errorData = { error: { message: response.statusText } };
+                    }
+                    removeLoading();
+                    const errorMsg = errorData.error?.message || `HTTP ${response.status}: ${response.statusText}`;
+                    showError(errorMsg);
+                    console.error('❌ Error response:', errorData);
+                    return;
+                }
+
                 const data = await response.json();
+                console.log('✅ Response data:', data);
 
                 removeLoading();
 
-                if (!response.ok) {
-                    // Handle error response
-                    const errorMsg = data.error?.message || `HTTP ${response.status}: ${response.statusText}`;
-                    showError(errorMsg);
-                } else {
-                    // Add bot response
-                    const botMessage = data.response || 'Xin lỗi, tôi không thể trả lời câu hỏi này.';
-                    addMessage(botMessage, false);
-                    
-                    // Show processing time if available
-                    if (data.processing_time) {
-                        console.log(`⏱️ Processing time: ${data.processing_time.toFixed(2)}s`);
-                    }
+                // Add bot response
+                const botMessage = data.response || 'Xin lỗi, tôi không thể trả lời câu hỏi này.';
+                addMessage(botMessage, false);
+                
+                // Show processing time if available
+                if (data.processing_time) {
+                    console.log(`⏱️ Processing time: ${data.processing_time.toFixed(2)}s`);
                 }
             } catch (error) {
                 removeLoading();
-                showError(error.message || 'Không thể kết nối đến server. Vui lòng kiểm tra lại.');
-                console.error('Error:', error);
+                console.error('❌ Fetch error:', error);
+                const errorMsg = error.message || 'Không thể kết nối đến server. Vui lòng kiểm tra lại.';
+                showError(errorMsg);
+                
+                // Show detailed error in console
+                if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    console.error('💡 CORS or network error. Make sure you access via http://localhost:8001/chat-ui');
+                }
             } finally {
                 // Re-enable input and button
                 chatInput.disabled = false;

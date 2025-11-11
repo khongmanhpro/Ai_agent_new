@@ -1,5 +1,5 @@
-# Use Python 3.11 slim image
-FROM python:3.11-slim
+# Use Python 3.9 slim image (more stable for ML packages)
+FROM python:3.9-slim
 
 # Set working directory
 WORKDIR /app
@@ -16,10 +16,8 @@ RUN apt-get update && apt-get install -y \
 
 # Copy requirements first for better caching
 COPY core/requirements.txt .
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir flask flask-cors flask-swagger-ui requests websockets && \
-    pip install --no-cache-dir numpy pandas nltk neo4j openai tiktoken && \
-    pip install --no-cache-dir faiss-cpu sentence-transformers
+RUN pip install --upgrade pip setuptools wheel && \
+    pip install --no-cache-dir -r requirements.txt
 
 # Install MiniRAG framework locally
 COPY MiniRAG/ ./MiniRAG/

@@ -664,20 +664,6 @@ def chat_endpoint():
         logger.error(f"❌ Chat error: {e}")
         return jsonify({"error": f"Internal server error: {str(e)}"}), 500
 
-@app.route("/chat-ui", methods=["GET"])
-@app.route("/ui", methods=["GET"])
-def chat_ui():
-    """Serve Chat UI"""
-    try:
-        chat_ui_path = os.path.join(os.path.dirname(__file__), '..', 'chat_ui.html')
-        with open(chat_ui_path, 'r', encoding='utf-8') as f:
-            return f.read(), 200, {'Content-Type': 'text/html; charset=utf-8'}
-    except FileNotFoundError:
-        return jsonify({
-            "message": "Chat UI not found. Please ensure chat_ui.html exists in the project root.",
-            "swagger_ui": "/api/docs",
-            "api_spec": "/api/spec"
-        }), 404
 
 @app.route("/", methods=["GET"])
 def root():
@@ -685,7 +671,7 @@ def root():
     return jsonify({
         "message": "Insurance Bot API",
         "version": "1.0.0",
-        "chat_ui": f"http://localhost:8001/chat-ui",
+        "chat_ui": "http://localhost:3000 (Node.js Chat UI)",
         "swagger_ui": f"http://localhost:8001{SWAGGER_URL}",
         "api_spec": f"http://localhost:8001{API_URL}",
         "endpoints": {

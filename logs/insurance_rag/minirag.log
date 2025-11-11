@@ -1,0 +1,437 @@
+2025-11-11 15:35:51,529 - minirag - INFO - Loaded document status storage with 0 records
+2025-11-11 15:35:52,246 - minirag - INFO - Logger initialized for working directory: ./insurance_rag
+2025-11-11 15:35:52,247 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 15:35:52,247 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 15:35:52,247 - minirag - INFO - Load KV full_docs with 0 data
+2025-11-11 15:35:52,247 - minirag - INFO - Load KV text_chunks with 0 data
+2025-11-11 15:35:52,248 - minirag - INFO - Loaded document status storage with 0 records
+2025-11-11 15:36:18,051 - minirag - INFO - Loaded document status storage with 0 records
+2025-11-11 15:36:18,052 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:36:18,052 - minirag - INFO - Number of batches to process: 1
+2025-11-11 15:36:18,473 - minirag - INFO - Inserting 1 vectors to chunks
+2025-11-11 15:36:45,187 - minirag - INFO - Loaded document status storage with 1 records
+2025-11-11 15:36:45,189 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:36:45,189 - minirag - INFO - Number of batches to process: 1
+2025-11-11 15:36:45,704 - minirag - INFO - Inserting 1 vectors to chunks
+2025-11-11 15:36:45,720 - minirag - INFO - Document processing pipeline completed
+2025-11-11 15:36:45,721 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 15:36:54,545 - minirag - WARNING - Didn't extract any relationships, maybe your LLM is not working
+2025-11-11 15:36:54,552 - minirag - INFO - Writing graph with 4 nodes, 0 edges
+2025-11-11 15:36:57,330 - minirag - INFO - Query: bảo hiểm xe máy, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 15:36:57,333 - minirag - INFO - Query: bảo hiểm xe máy là gì?, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 15:36:57,333 - minirag - INFO - Query: bảo hiểm xe máy là gì?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 15:37:40,949 - minirag - INFO - Loaded document status storage with 1 records
+2025-11-11 15:37:41,786 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:37:41,787 - minirag - INFO - Number of batches to process: 1
+2025-11-11 15:37:42,119 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:37:45,737 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:37:45,738 - minirag - INFO - Number of batches to process: 1
+2025-11-11 15:37:45,749 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:37:48,864 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:37:48,868 - minirag - INFO - Number of batches to process: 2
+2025-11-11 15:37:48,902 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:37:51,668 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:37:51,670 - minirag - INFO - Number of batches to process: 2
+2025-11-11 15:37:51,683 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:37:56,239 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:37:56,240 - minirag - INFO - Number of batches to process: 3
+2025-11-11 15:37:56,255 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:38:01,716 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:38:01,718 - minirag - INFO - Number of batches to process: 3
+2025-11-11 15:38:01,735 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:38:05,576 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:38:05,577 - minirag - INFO - Number of batches to process: 4
+2025-11-11 15:38:05,587 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:38:09,633 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:38:09,636 - minirag - INFO - Number of batches to process: 4
+2025-11-11 15:38:09,743 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:38:12,043 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:38:12,045 - minirag - INFO - Number of batches to process: 5
+2025-11-11 15:38:12,075 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:38:14,299 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:38:14,300 - minirag - INFO - Number of batches to process: 5
+2025-11-11 15:38:14,313 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:38:18,329 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:38:18,332 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:38:18,370 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:38:21,647 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:38:21,648 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:38:21,666 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:38:24,696 - minirag - INFO - Logger initialized for working directory: ./insurance_rag
+2025-11-11 15:38:24,696 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 15:38:24,697 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 15:38:24,697 - minirag - INFO - Load KV full_docs with 1 data
+2025-11-11 15:38:24,698 - minirag - INFO - Load KV text_chunks with 1 data
+2025-11-11 15:38:24,699 - minirag - INFO - Loaded graph from ./insurance_rag/graph_chunk_entity_relation.graphml with 4 nodes, 0 edges
+2025-11-11 15:38:24,706 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 15:38:38,915 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 15:38:49,251 - minirag - INFO - Query: bảo hiểm xe máy, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 15:38:50,694 - minirag - INFO - Query: insurance, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 15:38:52,699 - minirag - INFO - Query: motorbike, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 15:38:54,892 - minirag - INFO - Query: bảo hiểm xe máy là gì?, top_k: 180, cosine_better_than_threshold: 0.2
+2025-11-11 15:38:56,203 - minirag - INFO - Query: bảo hiểm xe máy là gì?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 15:48:39,473 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 15:49:24,115 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 15:49:25,194 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:25,196 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:25,947 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:49:29,574 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:29,582 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:29,611 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:49:31,832 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:31,836 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:31,902 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:49:34,972 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:34,973 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:34,986 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:49:42,131 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:42,137 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:42,161 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:49:44,133 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:44,134 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:44,152 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:49:46,295 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:46,296 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:46,310 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:49:49,867 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:49,874 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:49,921 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:49:52,546 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:52,548 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:52,588 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:49:55,256 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:55,279 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:55,319 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:49:58,829 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:49:58,833 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:49:58,888 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:50:02,290 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:50:02,295 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:50:02,335 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:50:04,553 - minirag - INFO - Logger initialized for working directory: ./insurance_rag
+2025-11-11 15:50:04,555 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 15:50:04,556 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 15:50:04,557 - minirag - INFO - Load KV full_docs with 1 data
+2025-11-11 15:50:04,557 - minirag - INFO - Load KV text_chunks with 1 data
+2025-11-11 15:50:04,562 - minirag - INFO - Loaded graph from ./insurance_rag/graph_chunk_entity_relation.graphml with 4 nodes, 0 edges
+2025-11-11 15:50:04,597 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 15:51:05,745 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 15:51:06,607 - minirag - INFO - Stored 1 new unique documents
+2025-11-11 15:51:06,607 - minirag - INFO - Number of batches to process: 6
+2025-11-11 15:51:07,389 - minirag - INFO - Inserting 8 vectors to chunks
+2025-11-11 15:51:11,386 - minirag - INFO - Inserting 3 vectors to chunks
+2025-11-11 15:51:19,283 - minirag - INFO - Inserting 9 vectors to chunks
+2025-11-11 15:51:22,580 - minirag - INFO - Inserting 6 vectors to chunks
+2025-11-11 15:51:24,957 - minirag - INFO - Inserting 3 vectors to chunks
+2025-11-11 15:51:26,863 - minirag - INFO - Inserting 3 vectors to chunks
+2025-11-11 15:51:29,314 - minirag - INFO - Inserting 5 vectors to chunks
+2025-11-11 15:51:31,774 - minirag - INFO - Inserting 9 vectors to chunks
+2025-11-11 15:51:36,629 - minirag - INFO - Inserting 3 vectors to chunks
+2025-11-11 15:51:52,645 - minirag - INFO - Inserting 10 vectors to chunks
+2025-11-11 15:51:55,646 - minirag - INFO - Inserting 29 vectors to chunks
+2025-11-11 15:52:00,427 - minirag - INFO - Inserting 7 vectors to chunks
+2025-11-11 15:52:02,827 - minirag - INFO - Document processing pipeline completed
+2025-11-11 15:52:02,934 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 15:55:30,380 - minirag - INFO - Inserting 1098 vectors to entities
+2025-11-11 15:57:34,532 - minirag - INFO - Inserting 1098 vectors to entities
+2025-11-11 15:59:35,417 - minirag - INFO - Inserting 1098 vectors to entities_name
+2025-11-11 16:02:02,854 - minirag - INFO - Inserting 627 vectors to relationships
+2025-11-11 16:03:18,675 - minirag - INFO - Writing graph with 1117 nodes, 627 edges
+2025-11-11 16:03:19,097 - minirag - INFO - No new unique documents were found.
+2025-11-11 16:03:19,098 - minirag - INFO - No documents to process
+2025-11-11 16:03:19,392 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 16:06:27,558 - minirag - INFO - Inserting 1134 vectors to entities
+2025-11-11 16:09:04,998 - minirag - INFO - Inserting 1134 vectors to entities
+2025-11-11 16:11:52,692 - minirag - INFO - Inserting 1134 vectors to entities_name
+2025-11-11 16:14:05,278 - minirag - INFO - Inserting 568 vectors to relationships
+2025-11-11 16:15:12,113 - minirag - INFO - Writing graph with 1643 nodes, 1047 edges
+2025-11-11 16:15:12,225 - minirag - INFO - No new unique documents were found.
+2025-11-11 16:15:12,227 - minirag - INFO - No documents to process
+2025-11-11 16:15:12,459 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 16:18:15,797 - minirag - INFO - Inserting 1055 vectors to entities
+2025-11-11 16:20:19,147 - minirag - INFO - Inserting 1055 vectors to entities
+2025-11-11 16:23:33,835 - minirag - INFO - Inserting 1055 vectors to entities_name
+2025-11-11 16:25:37,133 - minirag - INFO - Inserting 655 vectors to relationships
+2025-11-11 16:26:39,726 - minirag - INFO - Writing graph with 1970 nodes, 1451 edges
+2025-11-11 16:26:39,847 - minirag - INFO - No new unique documents were found.
+2025-11-11 16:26:39,848 - minirag - INFO - No documents to process
+2025-11-11 16:26:40,001 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 16:29:43,218 - minirag - INFO - Inserting 1055 vectors to entities
+2025-11-11 16:31:46,964 - minirag - INFO - Inserting 1055 vectors to entities
+2025-11-11 16:33:48,680 - minirag - INFO - Inserting 1055 vectors to entities_name
+2025-11-11 16:36:05,147 - minirag - INFO - Inserting 607 vectors to relationships
+2025-11-11 16:37:39,538 - minirag - INFO - Writing graph with 2252 nodes, 1779 edges
+2025-11-11 16:37:39,671 - minirag - INFO - No new unique documents were found.
+2025-11-11 16:37:39,671 - minirag - INFO - No documents to process
+2025-11-11 16:37:39,798 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 16:40:46,000 - minirag - INFO - Inserting 1071 vectors to entities
+2025-11-11 16:42:57,685 - minirag - INFO - Inserting 1071 vectors to entities
+2025-11-11 16:45:01,846 - minirag - INFO - Inserting 1071 vectors to entities_name
+2025-11-11 16:47:05,919 - minirag - INFO - Inserting 577 vectors to relationships
+2025-11-11 16:48:15,560 - minirag - INFO - Writing graph with 2498 nodes, 2082 edges
+2025-11-11 16:48:15,692 - minirag - INFO - No new unique documents were found.
+2025-11-11 16:48:15,692 - minirag - INFO - No documents to process
+2025-11-11 16:48:15,809 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 16:51:59,372 - minirag - INFO - Inserting 1120 vectors to entities
+2025-11-11 16:54:12,899 - minirag - INFO - Inserting 1120 vectors to entities
+2025-11-11 16:57:41,420 - minirag - INFO - Inserting 1120 vectors to entities_name
+2025-11-11 17:01:33,035 - minirag - INFO - Inserting 617 vectors to relationships
+2025-11-11 17:04:39,259 - minirag - INFO - Writing graph with 2724 nodes, 2383 edges
+2025-11-11 17:04:39,486 - minirag - INFO - No new unique documents were found.
+2025-11-11 17:04:39,487 - minirag - INFO - No documents to process
+2025-11-11 17:04:39,644 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 17:09:42,783 - minirag - INFO - Inserting 1104 vectors to entities
+2025-11-11 17:13:07,547 - minirag - INFO - Inserting 1104 vectors to entities
+2025-11-11 17:15:57,854 - minirag - INFO - Inserting 1104 vectors to entities_name
+2025-11-11 17:17:52,045 - minirag - INFO - Inserting 597 vectors to relationships
+2025-11-11 17:19:03,716 - minirag - INFO - Writing graph with 2946 nodes, 2653 edges
+2025-11-11 17:19:03,936 - minirag - INFO - No new unique documents were found.
+2025-11-11 17:19:03,937 - minirag - INFO - No documents to process
+2025-11-11 17:19:04,145 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 17:22:04,193 - minirag - INFO - Inserting 1066 vectors to entities
+2025-11-11 17:24:07,956 - minirag - INFO - Inserting 1066 vectors to entities
+2025-11-11 17:26:21,873 - minirag - INFO - Inserting 1066 vectors to entities_name
+2025-11-11 17:27:59,734 - minirag - INFO - Inserting 594 vectors to relationships
+2025-11-11 17:29:29,149 - minirag - INFO - Writing graph with 3143 nodes, 2905 edges
+2025-11-11 17:29:29,451 - minirag - INFO - No new unique documents were found.
+2025-11-11 17:29:29,452 - minirag - INFO - No documents to process
+2025-11-11 17:29:29,693 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 17:32:40,950 - minirag - INFO - Inserting 1097 vectors to entities
+2025-11-11 17:35:19,731 - minirag - INFO - Inserting 1097 vectors to entities
+2025-11-11 17:37:43,735 - minirag - INFO - Inserting 1097 vectors to entities_name
+2025-11-11 17:39:41,268 - minirag - INFO - Inserting 586 vectors to relationships
+2025-11-11 17:40:48,196 - minirag - INFO - Writing graph with 3331 nodes, 3142 edges
+2025-11-11 17:40:48,530 - minirag - INFO - No new unique documents were found.
+2025-11-11 17:40:48,531 - minirag - INFO - No documents to process
+2025-11-11 17:40:48,885 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 17:42:28,729 - minirag - INFO - No new unique documents were found.
+2025-11-11 17:42:28,730 - minirag - INFO - No documents to process
+2025-11-11 17:42:28,946 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 17:42:43,252 - minirag - INFO - No new unique documents were found.
+2025-11-11 17:42:43,254 - minirag - INFO - No documents to process
+2025-11-11 17:42:43,404 - minirag - INFO - Performing entity extraction on newly processed chunks
+2025-11-11 17:43:58,682 - minirag - INFO - Logger initialized for working directory: ./insurance_rag
+2025-11-11 17:43:58,686 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 17:43:58,687 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 17:43:58,695 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 17:43:58,701 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 17:44:00,131 - minirag - INFO - Loaded graph from ./insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 17:44:01,176 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 17:44:07,457 - minirag - INFO - Query: Bảo hiểm xe máy, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:44:08,549 - minirag - INFO - Query: xe máy, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:44:09,808 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 120, cosine_better_than_threshold: 0.2
+2025-11-11 17:45:14,353 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 17:49:16,061 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 17:49:28,214 - minirag - INFO - Query: bảo hiểm xe máy, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:49:29,336 - minirag - INFO - Query: insurance, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:49:30,484 - minirag - INFO - Query: motorbike, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:49:31,587 - minirag - INFO - Query: bảo hiểm xe máy là gì?, top_k: 180, cosine_better_than_threshold: 0.2
+2025-11-11 17:49:40,391 - minirag - INFO - Query: bảo hiểm xe máy là gì?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 17:50:33,803 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 17:50:37,787 - minirag - INFO - Query: bảo hiểm xe máy, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:50:39,044 - minirag - INFO - Query: insurance, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:50:40,257 - minirag - INFO - Query: motorcycle, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:50:45,739 - minirag - INFO - Query: bảo hiểm xe máy là gì?, top_k: 180, cosine_better_than_threshold: 0.2
+2025-11-11 17:50:55,225 - minirag - INFO - Query: bảo hiểm xe máy là gì?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 17:51:42,422 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 17:52:26,130 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 17:54:49,490 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 17:54:56,427 - minirag - INFO - Query: bảo hiểm xe máy, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:54:58,355 - minirag - INFO - Query: xe máy, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:55:00,221 - minirag - INFO - Query: bảo hiểm xe máy là gì?, top_k: 120, cosine_better_than_threshold: 0.2
+2025-11-11 17:55:08,149 - minirag - INFO - Query: bảo hiểm xe máy là gì?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 17:56:54,814 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 17:57:08,065 - minirag - INFO - Query: bảo hiểm xe máy, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:57:10,774 - minirag - INFO - Query: giá, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 17:57:12,601 - minirag - INFO - Query: bảo hiểm xe máy giá bao nhiêu?, top_k: 120, cosine_better_than_threshold: 0.2
+2025-11-11 17:57:19,625 - minirag - INFO - Query: bảo hiểm xe máy giá bao nhiêu?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 18:00:51,759 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 18:00:56,262 - minirag - INFO - Query: Bảo hiểm xe máy, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:00:57,628 - minirag - INFO - Query: insurance, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:00:58,792 - minirag - INFO - Query: motorbike, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:01:01,106 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 180, cosine_better_than_threshold: 0.2
+2025-11-11 18:01:08,199 - minirag - INFO - Query: giá, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:01:09,713 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 18:01:10,096 - minirag - INFO - Query: thuế, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:01:11,686 - minirag - INFO - Query: giá đã bao gồm thuế chưa?, top_k: 120, cosine_better_than_threshold: 0.2
+2025-11-11 18:01:14,422 - minirag - INFO - Query: giá đã bao gồm thuế chưa?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 18:01:41,148 - minirag - INFO - Query: bảo hiểm nhà tù nhân, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:01:42,205 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:01:45,828 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:03,154 - minirag - INFO - Query: Bảo hiểm du lịch, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:06,107 - minirag - INFO - Query: toàn cầu, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:26,818 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 120, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:34,186 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:37,265 - minirag - INFO - Query: bảo hiểm y tế, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:39,548 - minirag - INFO - Query: bảo hiểm sức khoẻ, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:46,116 - minirag - INFO - Query: so sánh bảo hiểm y tế và bảo hiểm sức khoẻ?, top_k: 120, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:49,468 - minirag - INFO - Query: Bảo hiểm tai nạn con người, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:50,577 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 60, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:55,787 - minirag - INFO - Query: so sánh bảo hiểm y tế và bảo hiểm sức khoẻ?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 18:02:57,981 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 30, cosine_better_than_threshold: 0.2
+2025-11-11 18:05:43,185 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 18:05:49,774 - minirag - INFO - Query: Bảo hiểm xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:05:50,829 - minirag - INFO - Query: insurance, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:05:52,265 - minirag - INFO - Query: motorbike insurance, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:05:55,377 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 90, cosine_better_than_threshold: 0.3
+2025-11-11 18:06:00,303 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:06:18,017 - minirag - INFO - Query: bảo hiểm, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:06:20,373 - minirag - INFO - Query: nhà tù, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:06:22,520 - minirag - INFO - Query: quy tắc, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:06:26,306 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 90, cosine_better_than_threshold: 0.3
+2025-11-11 18:06:33,277 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:06:50,771 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:06:52,000 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:06:54,694 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:07:12,043 - minirag - INFO - Query: Bảo hiểm tai nạn, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:07:15,133 - minirag - INFO - Query: con người, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:07:16,336 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:07:21,733 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:08:03,159 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 18:08:07,688 - minirag - INFO - Query: Bảo hiểm xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:08:08,919 - minirag - INFO - Query: insurance, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:08:10,432 - minirag - INFO - Query: motorbike, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:08:13,683 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 90, cosine_better_than_threshold: 0.3
+2025-11-11 18:08:18,755 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:08:48,282 - minirag - INFO - Query: quy tắc, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:08:50,060 - minirag - INFO - Query: bảo hiểm, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:08:52,237 - minirag - INFO - Query: nhà tù nhân, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:08:53,459 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 90, cosine_better_than_threshold: 0.3
+2025-11-11 18:09:23,766 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:09:39,879 - minirag - INFO - Query: Bảo hiểm du lịch, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:09:41,039 - minirag - INFO - Query: toàn cầu, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:09:42,317 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:09:47,313 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:10:21,191 - minirag - INFO - Query: Bảo hiểm tai nạn, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:10:22,909 - minirag - INFO - Query: con người, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:10:24,704 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:10:28,580 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:11:12,692 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 18:11:17,037 - minirag - INFO - Query: Bảo hiểm xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:11:18,956 - minirag - INFO - Query: xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:11:20,882 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:11:27,573 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:11:51,060 - minirag - INFO - Query: quy tắc, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:11:53,072 - minirag - INFO - Query: bảo hiểm, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:11:54,918 - minirag - INFO - Query: nhà tù nhân, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:11:56,167 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 90, cosine_better_than_threshold: 0.3
+2025-11-11 18:12:02,014 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:12:18,917 - minirag - INFO - Query: Bảo hiểm du lịch, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:12:20,799 - minirag - INFO - Query: toàn cầu, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:12:22,814 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:12:28,266 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:12:59,994 - minirag - INFO - Query: Bảo hiểm tai nạn, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:13:01,944 - minirag - INFO - Query: con người, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:13:02,962 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:13:08,966 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:14:01,008 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 18:14:08,011 - minirag - INFO - Query: Bảo hiểm xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:14:09,765 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:14:11,987 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:14:34,401 - minirag - INFO - Query: quy tắc, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:14:36,373 - minirag - INFO - Query: bảo hiểm, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:14:37,286 - minirag - INFO - Query: nhà tù nhân, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:14:39,467 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 90, cosine_better_than_threshold: 0.3
+2025-11-11 18:14:43,750 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:14:58,821 - minirag - INFO - Query: Bảo hiểm du lịch, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:15:00,817 - minirag - INFO - Query: toàn cầu, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:15:01,907 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:15:04,745 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:15:35,514 - minirag - INFO - Query: Bảo hiểm tai nạn, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:15:37,510 - minirag - INFO - Query: con người, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:15:39,268 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:15:42,166 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:16:10,167 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 18:16:25,873 - minirag - INFO - Query: Bảo hiểm xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:16:29,740 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:16:32,106 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:16:55,866 - minirag - INFO - Query: bảo hiểm, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:16:57,657 - minirag - INFO - Query: nhà tù, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:16:58,925 - minirag - INFO - Query: quy tắc, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:17:00,972 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 90, cosine_better_than_threshold: 0.3
+2025-11-11 18:17:06,641 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:17:20,116 - minirag - INFO - Query: Bảo hiểm du lịch, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:17:21,979 - minirag - INFO - Query: toàn cầu, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:17:24,268 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:17:26,685 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:17:54,395 - minirag - INFO - Query: Bảo hiểm tai nạn, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:17:56,240 - minirag - INFO - Query: con người, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:17:57,471 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:18:00,062 - minirag - INFO - Query: Bảo hiểm tai nạn con người?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:19:20,735 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 18:19:35,716 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 18:19:47,045 - minirag - INFO - Query: bảo hiểm xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:19:48,987 - minirag - INFO - Query: xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:19:52,123 - minirag - INFO - Query: bảo hiểm xe máy là gì, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 18:19:55,523 - minirag - INFO - Query: bảo hiểm xe máy là gì, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 18:20:56,641 - minirag - INFO - Query: bảo hiểm, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:20:58,484 - minirag - INFO - Query: tndsbb, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:20:58,493 - minirag - INFO - Query: xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 18:21:01,204 - minirag - INFO - Query: giá bảo hiểm tndsbb xe máy, top_k: 90, cosine_better_than_threshold: 0.3
+2025-11-11 18:21:07,844 - minirag - INFO - Query: giá bảo hiểm tndsbb xe máy, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 19:55:28,380 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 19:55:28,382 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 19:55:28,383 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 19:55:28,386 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 19:55:28,390 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 19:55:28,945 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 19:55:29,653 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 19:56:13,853 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 19:56:13,855 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 19:56:13,855 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 19:56:13,858 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 19:56:13,861 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 19:56:14,297 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 19:56:14,961 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 19:59:05,145 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 19:59:05,147 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 19:59:05,148 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 19:59:05,152 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 19:59:05,155 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 19:59:05,637 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 19:59:06,312 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 19:59:50,663 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 19:59:50,665 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 19:59:50,665 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 19:59:50,668 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 19:59:50,672 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 19:59:51,095 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 19:59:51,732 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 20:01:45,382 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 20:01:45,384 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 20:01:45,385 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 20:01:45,388 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 20:01:45,391 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 20:01:45,883 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 20:01:46,542 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 20:02:13,166 - minirag - INFO - Query: Bảo hiểm xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 20:02:17,479 - minirag - INFO - Query: xe máy, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 20:02:22,427 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 20:02:26,273 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 20:02:42,482 - minirag - INFO - Query: bảo hiểm, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 20:02:44,724 - minirag - INFO - Query: nhà tù nhân, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 20:02:47,983 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 20:02:52,272 - minirag - INFO - Query: Quy tắc bảo hiểm nhà tù nhân?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 20:03:16,789 - minirag - INFO - Query: Bảo hiểm du lịch, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 20:03:17,983 - minirag - INFO - Query: toàn cầu, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 20:03:19,485 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 60, cosine_better_than_threshold: 0.3
+2025-11-11 20:03:23,164 - minirag - INFO - Query: Bảo hiểm du lịch toàn cầu?, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 20:04:45,948 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 20:04:45,950 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 20:04:45,950 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 20:04:45,952 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 20:04:45,956 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 20:04:46,389 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 20:04:47,019 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 20:20:56,563 - minirag - INFO - Logger initialized for working directory: /Volumes/data/MINIRAG/logs/insurance_rag
+2025-11-11 20:20:56,565 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-11 20:20:56,565 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-11 20:20:56,568 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-11 20:20:56,572 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-11 20:20:57,057 - minirag - INFO - Loaded graph from /Volumes/data/MINIRAG/logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-11 20:20:57,674 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-11 20:21:46,281 - minirag - INFO - Query: bảo hiển sức khoẻ, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 20:21:46,375 - minirag - INFO - Query: bảo hiển sức khoẻ, top_k: 30, cosine_better_than_threshold: 0.3
+2025-11-11 20:21:49,587 - minirag - INFO - Query: bảo hiển sức khoẻ, top_k: 15, cosine_better_than_threshold: 0.3
+2025-11-11 20:28:38,852 - minirag - INFO - Query: Hello, top_k: 0, cosine_better_than_threshold: 0.3
+2025-11-11 20:28:38,873 - minirag - INFO - Query: Hello, top_k: 15, cosine_better_than_threshold: 0.3

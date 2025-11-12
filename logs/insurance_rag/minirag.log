@@ -601,3 +601,28 @@
 2025-11-12 00:10:09,519 - minirag - INFO - Query: hi, top_k: 3, cosine_better_than_threshold: 0.3
 2025-11-12 00:10:39,354 - minirag - INFO - Query: bảo hiểm xe máy là gì, top_k: 3, cosine_better_than_threshold: 0.3
 2025-11-12 00:10:39,422 - minirag - INFO - Truncate 3 to 0 chunks
+2025-11-12 00:11:36,574 - minirag - INFO - Logger initialized for working directory: ./logs/insurance_rag
+2025-11-12 00:11:36,578 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-12 00:11:36,579 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-12 00:11:36,583 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-12 00:11:36,588 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-12 00:11:37,496 - minirag - INFO - Loaded graph from ./logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-12 00:11:39,357 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-12 00:12:21,371 - minirag - INFO - Query: Bảo hiểm xe máy là gì?, top_k: 2, cosine_better_than_threshold: 0.3
+2025-11-12 00:12:46,225 - minirag - INFO - Truncate 2 to 0 chunks
+2025-11-12 00:13:21,595 - minirag - INFO - Query: hi, top_k: 2, cosine_better_than_threshold: 0.3
+2025-11-12 00:13:29,693 - minirag - INFO - Query: bảo hiểm sức khoẻ là gì?, top_k: 2, cosine_better_than_threshold: 0.3
+2025-11-12 00:13:29,708 - minirag - INFO - Truncate 2 to 0 chunks
+2025-11-12 00:16:26,031 - minirag - INFO - Logger initialized for working directory: ./logs/insurance_rag
+2025-11-12 00:16:26,033 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-12 00:16:26,033 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-12 00:16:26,037 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-12 00:16:26,040 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-12 00:16:26,398 - minirag - INFO - Loaded graph from ./logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-12 00:16:27,948 - minirag - INFO - Loaded document status storage with 13 records
+2025-11-12 00:17:15,578 - minirag - INFO - Query: Quyền lợi, Hợp đồng, Chi phí, Dịch vụ y tế, Khám chữa bệnh, top_k: 8, cosine_better_than_threshold: 0.3
+2025-11-12 00:17:45,394 - minirag - INFO - Local query uses 8 entites, 25 relations, 2 text units
+2025-11-12 00:17:47,426 - minirag - INFO - Query: Bảo hiểm sức khỏe, Bảo hiểm, Sức khỏe, top_k: 8, cosine_better_than_threshold: 0.3
+2025-11-12 00:17:47,535 - minirag - INFO - Global query uses 2 entites, 8 relations, 2 text units
+2025-11-12 00:18:32,065 - minirag - INFO - Query: Bảo hiểm bắt buộc, Bảo hiểm tự nguyện, Quyền lợi, Chi phí, top_k: 8, cosine_better_than_threshold: 0.3
+2025-11-12 00:18:32,154 - minirag - INFO - Local query uses 8 entites, 42 relations, 2 text units

@@ -361,8 +361,8 @@ class InsuranceBotMiniRAG:
         if not working_dir.startswith('./'):
             working_dir = './' + working_dir.lstrip('/')
         
-        # Tối ưu: Giảm max_tokens để tăng tốc generation (800 thay vì 1000)
-        llm_max_tokens = int(os.environ.get('OPENAI_LLM_MAX_TOKENS') or config.get('DEFAULT', 'OPENAI_LLM_MAX_TOKENS', fallback='800'))
+        # Tối ưu: Giữ max_tokens đủ để có câu trả lời đầy đủ (1200 cho bảo hiểm cần chi tiết)
+        llm_max_tokens = int(os.environ.get('OPENAI_LLM_MAX_TOKENS') or config.get('DEFAULT', 'OPENAI_LLM_MAX_TOKENS', fallback='1200'))
         llm_model = os.environ.get('OPENAI_LLM_MODEL') or config.get('DEFAULT', 'OPENAI_LLM_MODEL', fallback='gpt-4o-mini')
         
         print(f"📁 Working directory: {working_dir}")
@@ -385,7 +385,43 @@ class InsuranceBotMiniRAG:
         # Cache cho response với TTL
         self.response_cache: Dict[str, Dict] = {}
         self.cache_ttl = 3600  # 1 giờ
+        
+        # Pre-warm cache với common queries (tối ưu tốc độ)
+        self._pre_warm_cache()
+        
         print("✅ Insurance Bot with MiniRAG initialized!")
+    
+    def _pre_warm_cache(self):
+        """Pre-warm cache với common queries để tăng tốc độ"""
+        common_queries = [
+            "Bảo hiểm xe máy là gì?",
+            "Phí bảo hiểm xe máy bao nhiêu?",
+            "Quy trình mua bảo hiểm xe máy?",
+            "Bảo hiểm sức khỏe là gì?",
+            "Bảo hiểm bắt buộc là gì?",
+        ]
+        
+        # Pre-compute embeddings cho common queries (async, không block)
+        async def pre_warm_embeddings():
+            try:
+                for query in common_queries:
+                    await get_openai_embedding_func([query])
+                print(f"✅ Pre-warmed cache với {len(common_queries)} common queries")
+            except Exception as e:
+                print(f"⚠️ Pre-warm cache error: {e}")
+        
+        # Chạy pre-warm trong background (không block initialization)
+        try:
+            loop = asyncio.get_event_loop()
+            if loop.is_running():
+                # Nếu loop đang chạy, schedule task
+                asyncio.create_task(pre_warm_embeddings())
+            else:
+                # Nếu không, chạy sync
+                loop.run_until_complete(pre_warm_embeddings())
+        except Exception:
+            # Nếu không có event loop, bỏ qua pre-warm
+            pass
 
     def extract_keywords(self, question: str):
         """Trích xuất từ khóa từ câu hỏi"""
@@ -425,41 +461,34 @@ class InsuranceBotMiniRAG:
                 # Cache expired
                 del self.response_cache[cache_key]
 
-        print("🔍 Querying MiniRAG (optimized for speed)...")
+        print("🔍 Querying MiniRAG (optimized for speed + accuracy)...")
 
         try:
-            # Tối ưu cực đại để đạt < 16s (best practices từ các công ty lớn):
-            # - top_k: 3 (tối thiểu để vẫn có kết quả tốt)
-            # - max_token_for_text_unit: 1000 (giảm context để tăng tốc)
-            # - Naive mode: Nhanh nhất, chỉ vector search
+            # Tối ưu cân bằng: Tốc độ + Độ chính xác (quan trọng cho lĩnh vực bảo hiểm)
+            # - top_k: 8-10 (đủ để có kết quả chính xác và đầy đủ)
+            # - max_token_for_text_unit: 2500 (đủ context, không mất từ)
+            # - Light mode: Có graph context, chính xác hơn naive mode
+            # - Tối ưu bằng caching, connection pooling, không giảm chất lượng
             query_param = QueryParam(
-                mode="naive",  # Naive mode nhanh nhất - chỉ vector search, không dùng graph
-                top_k=3,  # Giảm xuống 3 để tăng tốc tối đa (trade-off: accuracy)
-                max_token_for_text_unit=1000,  # Giảm từ 1500 xuống 1000 để tăng tốc
+                mode="light",  # Light mode: có graph context, chính xác hơn naive
+                top_k=8,  # Đủ để có kết quả chính xác và đầy đủ (không giảm)
+                max_token_for_text_unit=2500,  # Đủ context, không mất từ
+                max_token_for_node_context=400,  # Đủ context cho entities
+                max_token_for_local_context=2000,  # Đủ context cho local
+                max_token_for_global_context=2000,  # Đủ context cho global
             )
             
             query_start = time.time()
             try:
                 answer = await self.rag.aquery(question, param=query_param)
                 query_time = time.time() - query_start
-                
-                # Nếu vẫn quá chậm (> 12s), thử với top_k=2
-                if query_time > 12.0:
-                    print(f"⚠️ Query took {query_time:.2f}s, trying with top_k=2...")
-                    query_param.top_k = 2
-                    query_start = time.time()
-                    answer = await self.rag.aquery(question, param=query_param)
-                    query_time = time.time() - query_start
-            except Exception as naive_error:
-                # Nếu naive mode fail, fallback sang light mode với top_k nhỏ nhất
-                print(f"⚠️ Naive mode failed: {naive_error}, trying light mode with top_k=2...")
+            except Exception as light_error:
+                # Nếu light mode fail, fallback sang naive mode với top_k đủ
+                print(f"⚠️ Light mode failed: {light_error}, trying naive mode with top_k=8...")
                 query_param = QueryParam(
-                    mode="light",
-                    top_k=2,  # Tối thiểu
-                    max_token_for_node_context=150,
-                    max_token_for_text_unit=800,
-                    max_token_for_local_context=800,
-                    max_token_for_global_context=800,
+                    mode="naive",
+                    top_k=8,  # Vẫn giữ đủ để chính xác
+                    max_token_for_text_unit=2500,  # Vẫn giữ đủ context
                 )
                 query_start = time.time()
                 answer = await self.rag.aquery(question, param=query_param)

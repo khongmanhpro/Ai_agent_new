@@ -8,7 +8,7 @@ import sys
 import asyncio
 import json
 import time
-from flask import Flask, request, jsonify, abort
+from flask import Flask, request, jsonify, abort, Response, stream_with_context
 from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
 from typing import Optional
@@ -647,7 +647,7 @@ def health_check():
 @app.route("/chat", methods=["POST"])
 @require_api_key
 def chat_endpoint():
-    """Main chat endpoint"""
+    """Main chat endpoint - Non-streaming"""
     if not bot:
         return jsonify({"error": "Bot not initialized"}), 503
 
@@ -673,6 +673,62 @@ def chat_endpoint():
             "session_id": session_id,
             "processing_time": processing_time
         })
+    except Exception as e:
+        logger.error(f"❌ Chat error: {e}")
+        return jsonify({"error": f"Internal server error: {str(e)}"}), 500
+
+@app.route("/chat/stream", methods=["POST"])
+@require_api_key
+def chat_stream_endpoint():
+    """Streaming chat endpoint - Server-Sent Events (SSE)"""
+    if not bot:
+        return jsonify({"error": "Bot not initialized"}), 503
+
+    try:
+        data = request.get_json()
+        if not data or 'message' not in data:
+            return jsonify({"error": "Missing 'message' field"}), 400
+
+        message = data['message']
+        session_id = data.get('session_id')
+
+        def generate():
+            """Generator function for Server-Sent Events"""
+            loop = get_or_create_event_loop()
+            
+            # Run async generator in sync context
+            async def stream_response():
+                full_response = ""
+                async for chunk in bot.chat_stream(message):
+                    full_response += chunk
+                    # Format as SSE
+                    yield f"data: {json.dumps({'chunk': chunk, 'done': False})}\n\n"
+                
+                # Send final message
+                yield f"data: {json.dumps({'chunk': '', 'done': True, 'full_response': full_response, 'session_id': session_id})}\n\n"
+            
+            # Convert async generator to sync generator
+            async_gen = stream_response()
+            try:
+                while True:
+                    try:
+                        chunk = loop.run_until_complete(async_gen.__anext__())
+                        yield chunk
+                    except StopAsyncIteration:
+                        break
+            except Exception as e:
+                logger.error(f"Streaming error: {e}")
+                yield f"data: {json.dumps({'error': str(e), 'done': True})}\n\n"
+
+        return Response(
+            stream_with_context(generate()),
+            mimetype='text/event-stream',
+            headers={
+                'Cache-Control': 'no-cache',
+                'X-Accel-Buffering': 'no',  # Disable buffering in nginx
+                'Connection': 'keep-alive',
+            }
+        )
 
     except Exception as e:
         logger.error(f"❌ Chat error: {e}")

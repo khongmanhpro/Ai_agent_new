@@ -626,3 +626,12 @@
 2025-11-12 00:17:47,535 - minirag - INFO - Global query uses 2 entites, 8 relations, 2 text units
 2025-11-12 00:18:32,065 - minirag - INFO - Query: Bảo hiểm bắt buộc, Bảo hiểm tự nguyện, Quyền lợi, Chi phí, top_k: 8, cosine_better_than_threshold: 0.3
 2025-11-12 00:18:32,154 - minirag - INFO - Local query uses 8 entites, 42 relations, 2 text units
+2025-11-12 00:18:39,114 - minirag - INFO - Query: Bảo hiểm, Xe máy, Khái niệm, top_k: 8, cosine_better_than_threshold: 0.3
+2025-11-12 00:18:39,177 - minirag - INFO - Global query uses 4 entites, 8 relations, 3 text units
+2025-11-12 00:25:33,621 - minirag - INFO - Logger initialized for working directory: ./logs/insurance_rag
+2025-11-12 00:25:33,623 - minirag - INFO - Load KV json_doc_status_storage with 0 data
+2025-11-12 00:25:33,624 - minirag - INFO - Load KV llm_response_cache with 0 data
+2025-11-12 00:25:33,627 - minirag - INFO - Load KV full_docs with 13 data
+2025-11-12 00:25:33,630 - minirag - INFO - Load KV text_chunks with 96 data
+2025-11-12 00:25:34,022 - minirag - INFO - Loaded graph from ./logs/insurance_rag/graph_chunk_entity_relation.graphml with 3331 nodes, 3142 edges
+2025-11-12 00:25:35,508 - minirag - INFO - Loaded document status storage with 13 records

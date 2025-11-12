@@ -445,6 +445,108 @@ class InsuranceBotMiniRAG:
         final_keywords = prioritized_keywords + [k for k in keywords if k not in prioritized_keywords]
         return final_keywords[:5]
 
+    async def chat_stream(self, question: str):
+        """Chat với bot sử dụng streaming - Trả về async generator (công nghệ mới nhất)"""
+        print(f"👤 Question (streaming): {question}")
+        start_time = time.time()
+        
+        # Check cache first (không stream cached responses)
+        cache_key = question.lower().strip()
+        if cache_key in self.response_cache:
+            entry = self.response_cache[cache_key]
+            if time.time() - entry['timestamp'] < self.cache_ttl:
+                print(f"📋 Using cached response (streaming disabled for cache)")
+                # Trả về cached response như một chunk
+                yield entry['answer']
+                return
+        
+        print("🔍 Querying MiniRAG with streaming (latest tech)...")
+        
+        try:
+            # Bước 1: Lấy context từ MiniRAG (nhanh, không stream)
+            # Sử dụng only_need_context=True để chỉ lấy context, không generate
+            query_param_context = QueryParam(
+                mode="light",
+                top_k=8,
+                max_token_for_text_unit=2500,
+                max_token_for_node_context=400,
+                max_token_for_local_context=2000,
+                max_token_for_global_context=2000,
+                only_need_context=True,  # Chỉ lấy context, không generate
+            )
+            
+            # Lấy context (nhanh)
+            context_start = time.time()
+            context = await self.rag.aquery(question, param=query_param_context)
+            context_time = time.time() - context_start
+            print(f"⏱️ Context retrieval: {context_time:.2f}s")
+            
+            # Bước 2: Stream LLM response trực tiếp từ OpenAI
+            # Build prompt với context (format giống MiniRAG nhưng dùng INSURANCE_BOT_PROMPT)
+            from minirag.operate import PROMPTS
+            
+            # Build system prompt: Kết hợp INSURANCE_BOT_PROMPT + context
+            # Format: System prompt + Context data
+            sys_prompt_base = INSURANCE_BOT_PROMPT
+            sys_prompt_with_context = f"""{sys_prompt_base}
+
+Dưới đây là thông tin từ cơ sở dữ liệu để trả lời câu hỏi:
+
+{context}
+
+Hãy sử dụng thông tin trên để trả lời câu hỏi một cách chính xác và đầy đủ."""
+            
+            # Stream trực tiếp từ LLM
+            client = get_openai_client()
+            llm_model = os.environ.get('OPENAI_LLM_MODEL') or config.get('DEFAULT', 'OPENAI_LLM_MODEL', fallback='gpt-4o-mini')
+            llm_max_tokens = int(os.environ.get('OPENAI_LLM_MAX_TOKENS') or config.get('DEFAULT', 'OPENAI_LLM_MAX_TOKENS', fallback='1200'))
+            
+            messages = [
+                {"role": "system", "content": sys_prompt_with_context},
+                {"role": "user", "content": question}
+            ]
+            
+            # Stream từ OpenAI
+            stream = await client.chat.completions.create(
+                model=llm_model,
+                messages=messages,
+                max_tokens=llm_max_tokens,
+                temperature=0.7,
+                stream=True  # Enable streaming
+            )
+            
+            full_response = ""
+            first_token_time = None
+            
+            async for chunk in stream:
+                if chunk.choices and len(chunk.choices) > 0:
+                    delta = chunk.choices[0].delta
+                    if hasattr(delta, 'content') and delta.content:
+                        content = delta.content
+                        full_response += content
+                        
+                        # Track TTFT (Time To First Token)
+                        if first_token_time is None:
+                            first_token_time = time.time() - start_time
+                            print(f"⚡ TTFT (Time To First Token): {first_token_time:.2f}s")
+                        
+                        yield content
+            
+            # Cache full response
+            self.response_cache[cache_key] = {
+                'answer': full_response,
+                'timestamp': time.time()
+            }
+            
+            total_time = time.time() - start_time
+            print(f"⏱️ Total streaming time: {total_time:.2f}s, TTFT: {first_token_time:.2f}s")
+                
+        except Exception as e:
+            print(f"❌ Streaming error: {e}")
+            import traceback
+            traceback.print_exc()
+            yield f"Xin lỗi, hiện tại hệ thống đang gặp sự cố kỹ thuật. Anh/chị vui lòng thử lại sau hoặc liên hệ hotline 0385 10 10 18 để được hỗ trợ ạ."
+    
     async def chat(self, question: str) -> str:
         """Chat với bot sử dụng MiniRAG - Tối ưu cho tốc độ < 15s"""
         start_time = time.time()
